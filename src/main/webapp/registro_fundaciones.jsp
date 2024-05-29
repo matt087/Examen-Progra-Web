@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"  session='true' import='com.seguridad.*'%>
+    pageEncoding="UTF-8"  session='true' import='com.seguridad.*' import='com.negocio.*'%>
 
 <%
 	int perfil = 0, id = 0;
@@ -35,6 +35,36 @@
 		<title>Registro de Fundaciones</title>
 	</head>
 	<body>
+		<script type="text/javascript">
+			    window.onload = function() 
+			    {
+			        var mensaje = '<%= request.getParameter("resultado") %>';
+			        if(mensaje==="Inserción correcta")
+			       		alert(mensaje);
+			        else if(mensaje==="Error en inserción")
+			       		alert(mensaje);
+			        var mensaje2 = '<%= request.getParameter("mensaje") %>';
+			        if(mensaje2==="eliminado")
+			       		alert("¡Eliminación exitosa!");
+			        else if(mensaje2==="error")
+			       		alert("¡Error en la eliminación!");
+			        else if(mensaje2==="actualizado")
+			       		alert("¡Actualización exitosa!");
+			        else if(mensaje2==="error_act")
+			       		alert("¡Error en la actualización!");
+			    };
+		</script>
+		<script type="text/javascript">
+			function confirmar(id, str1)
+			{
+		         var respuesta = confirm("¿Estás seguro de que deseas continuar?");
+		         if (respuesta == true) {
+		         	window.location.href = "respuesta_eliminar_fundacion.jsp?codigo="+id+"&nombre="+str1;
+		         } else {
+		        	 window.location.href = "registro_fundaciones.jsp";
+		         }
+		     }
+		</script>
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 		<header>
 			<div class='encabezado'>
@@ -49,13 +79,20 @@
 		</header>
 		<nav>
 			<div class='barra_nav'>
-				<a href='menu_admin.jsp'><i class="bi bi-house-fill"></i></i>Inicio</a>
+				<a href='menu_admin.jsp'><i class="bi bi-house-fill"></i>Inicio</a>
 				<a href='registro_fundaciones.jsp'><i class="bi bi-building-fill-add"></i>Registrar Fundaciones</a>
 				<a><i class="bi bi-clipboard-plus-fill"></i>Actualizar Información</a>
 			</div>
 		</nav>
-		<main class='centrar_profile'>
-			
+		<main class='centrar_vertical'>
+			<h2>Listado de Fundaciones</h2>
+			<%
+				Fundacion fun = new Fundacion();
+				out.print(fun.crearTabla());
+			%>
+			<div class='registro_fun'>
+				<a href='registrar_fun.jsp'><i class="bi bi-patch-plus-fill"></i>Registrar Fundaciones</a>
+			</div>
 		</main>
 		<footer>
 			<p>Alimentos Solidarios | Todos los derechos reservados</p>

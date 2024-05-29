@@ -15,11 +15,13 @@
 		 window.onload = function() 
 		 {
 		     var mensaje = '<%= request.getParameter("error") %>';
-		     console.log(mensaje);
 		     if(mensaje==="El cambio de clave ha sido exitoso")
 		    		alert(mensaje);
 		     if(mensaje==="Datos incorrectos")
 		    		alert(mensaje);
+		     var mensaje2 = '<%= request.getParameter("ingreso") %>';
+		     if(mensaje2==="correcto")
+		    		alert("¡El ingreso ha sido correcto!");
 		 };
 	</script>
 		<header>
@@ -53,7 +55,7 @@
 				<button class="btn_login" type="submit">Iniciar Sesión</button>
 				<div class="registro">
 					<p>¿No tienes una cuenta?
-						<a href="#">Regístrate</a>
+						<a href="registro.jsp">Regístrate</a>
 					</p>
 				</div>
 			</form>

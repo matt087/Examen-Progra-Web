@@ -1,5 +1,6 @@
 package com.seguridad;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -206,5 +207,79 @@ public class Usuario {
 			System.out.print(e.getMessage());
 		}
 		return ingresado;
+	}
+	
+	public String ingresarDonador()
+	{
+		String result="";
+
+		Conexion con=new Conexion();
+		PreparedStatement pr=null;
+		String sql="INSERT INTO tb_usuarios (id_us, id_per, cedula_us, nombre_us,"
+				+ "correo_us, username_us, password_us) "
+				+ "VALUES(?,?,?,?,?,?,?)";
+		try{
+			pr=con.getConexion().prepareStatement(sql);
+			pr.setInt(1,this.getId());
+			pr.setInt(2, 2);
+			pr.setString(3, this.getCedula());
+			pr.setString(4, this.getNombre());
+			pr.setString(5, this.getCorreo());
+			pr.setString(6, this.getUser());
+			pr.setString(7, this.getClave());
+			
+			if(pr.executeUpdate()==1)
+			{
+				result="Insercion correcta";
+			}
+			else
+			{
+				result="Error en insercion";
+			}
+		}
+		catch(Exception ex)
+		{
+			result=ex.getMessage();
+			System.out.print(result);
+		}
+		finally
+		{
+			try
+			{
+				pr.close();
+				con.getConexion().close();
+			}
+			catch(Exception ex)
+			{
+				System.out.print(ex.getMessage());
+			}
+		}
+		return result; 
+	}
+
+	
+	public int getUsuarios()
+	{
+		String sql="SELECT id_us FROM tb_usuarios";
+		ResultSet rs=null;
+		int aux=0, valor=0;
+		Conexion con=new Conexion();
+		try
+		{
+			rs=con.Consulta(sql);
+			while(rs.next())
+			{
+				valor=rs.getInt(1);
+				if(valor>aux)
+				{
+					aux=valor;
+				}
+			}
+		}
+		catch(SQLException e)
+		{
+			System.out.print(e.getMessage());
+		}
+		return aux+1;
 	}
 }

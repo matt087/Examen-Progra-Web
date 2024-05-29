@@ -62,8 +62,7 @@
 			</div>
 		</nav>
 		<main class='centrar_profile'>
-			<div  class='centrado'>
-				<form id="registro" action="respuesta_cambio.jsp" method="post">
+				<form id="registro" action="respuesta_cambio.jsp" method="post" class='formu'>
 			        <fieldset>
 			            <h2>Cambio de Clave</h2>
 			            	<label class="label">Ingrese la clave actual: </label>
@@ -80,7 +79,6 @@
 			            </div>     
 			        </fieldset>
 			     </form> 
-			</div>
 		</main>
 		<footer>
 			<p>Alimentos Solidarios | Todos los derechos reservados</p>

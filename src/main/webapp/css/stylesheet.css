@@ -16,6 +16,7 @@ body{
 	padding: 0;
 	font-family: "DM Sans", sans-serif;
 	background-color: white;
+		overflow-x: hidden;
 }
 header{
 	width: 100vw;
@@ -216,6 +217,62 @@ nav .barra_nav a:hover{
 	height: 65vh;	
 }
 
+.centrar_profile_2{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 75vh;	
+}
+
+.centrar_profile .formu{
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	width: 40%;
+	height: 75%;
+	border-radius: 50px;
+	border: 1px solid var(--azul);
+}
+
+.centrar_registro{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 65vh;	
+}
+
+.centrar_profile_2 .formu{
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+	height: 90%;
+	border-radius: 50px;
+	border: 1px solid var(--azul);
+}
+
+.centrar_profile_2 .formu h2{
+	color: var(--naranja);
+}
+
+.centrar_vertical{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100vw;
+	height: auto;
+	min-height: 65vh;
+}
+
+.centrar_vertical h2{
+	padding-top: 10px;
+}
+
 .centrar_profile .profile{
 	width: 50vw;
 	height: 50vh;
@@ -224,7 +281,7 @@ nav .barra_nav a:hover{
 }
 footer{
 	height: 10vh;
-	background-color: var(--azul);
+	background-color: var(--azul2);
 	width: 100vw;
 	text-align: center;
 	color: white;
@@ -283,7 +340,7 @@ footer{
 	align-items: center;
 	justify-content: center;
 	width: 30vw;
-	height: 60vh;
+	height: 100vh;
 }
 
 .centrado form{
@@ -348,8 +405,8 @@ footer{
 	justify-content: center;
 }
 .button_cambio button{
-	width: 10vw;
-	height: 5vh;
+	width: 13vw;
+	height: 7vh;
 	border: none;
 	outline: none;
 	border-radius: 40px;
@@ -360,4 +417,107 @@ footer{
 }
 .button_cambio button:hover{
 	background-color: var(--naranja);
+}
+
+.boton_1{
+	width: 50%;
+	height: 100%;
+	border: 1px solid;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.table{
+	width: 70%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table th{
+	background-color: var(--naranja);
+    color: white;
+    text-align: left;
+    padding: 12px;
+}
+
+.table td{
+	padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+
+.table table, th, td {
+    border-radius: 8px;
+}
+
+.table th {
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.valido {
+    text-decoration: none;
+    font-style: italic;
+}
+
+.valido:hover {
+    color: var(--rojo);
+    cursor: pointer;
+}
+
+.centrar_vertical h2{
+	font-weight: bold;
+	color: var(--rojo);
+}
+
+.registro_fun{
+	width: 65%;
+	height: 10%;
+	display: flex;
+	align-items: center;
+		color: var(--rojo);
+	justify-content: flex-end;
+}
+
+.centrado_form{
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	width: 40%;
+	height: 80%;
+	border-radius: 50px;
+	border: 1px solid var(--azul);
+}
+
+.centrado_form h2{
+	color: var(--naranja);
+}
+
+.registro_fun a{
+	font-size: 19px;	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--rojo);
+	text-decoration: none;
+	transition: transform 0.3s ease-in-out;
+}
+.registro_fun a i{
+	margin-right: 0.5vw;	
+	font-size: 25px;	
+}
+
+.registro_fun a:hover{
+	color: var(--naranja);
+	transform: scale(1.1);
+	cursor: pointer;
 }

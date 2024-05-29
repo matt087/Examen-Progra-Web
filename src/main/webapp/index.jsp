@@ -24,8 +24,11 @@
 				</a>
 			</div>
 		</header>
-		<main>
+		<main  class='centrar_profile_2'>
 		
 		</main>
+		<footer>
+			<p>Alimentos Solidarios | Todos los derechos reservados</p>
+		</footer>
 	</body>
 </html>
