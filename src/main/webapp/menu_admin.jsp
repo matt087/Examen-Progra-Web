@@ -51,13 +51,13 @@
 			<div class='barra_nav'>
 				<a href='menu_admin.jsp'><i class="bi bi-house-fill"></i>Inicio</a>
 				<a href='registro_fundaciones.jsp'><i class="bi bi-building-fill-add"></i>Registrar Fundaciones</a>
-				<a><i class="bi bi-clipboard-plus-fill"></i>Actualizar Información</a>
+				<a href='actualizar_info.jsp'><i class="bi bi-clipboard-plus-fill"></i>Actualizar Información</a>
 			</div>
 		</nav>
 		<main class='centrar_profile'>
 			<section class ='profile'>
 				<section class='vertical_img'>
-					<img alt="" src="resources/usuario.png">
+					<img alt="" src="resources/administracion.png">
 					<p><b>Usuario:</b><br> <%=usuario %></p>
 					<p><b>Tipo:</b><br> <%=per_name %></p>
 				</section>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 	<head>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">		<link href='css/stylesheet.css' rel='stylesheet' type='text/css'>		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -45,12 +45,6 @@
 				<div class="input-box">
 					<input placeholder="Contraseña: " type='password' required name='clave'>
 					<i class='bx bx-lock-alt' ></i>
-				</div>
-				<div class="recordar">
-					<label>
-						<input type="checkbox">Recordar contraseña
-					</label>
-					<a href="#">Olvidé mi contraseña</a>
 				</div>
 				<button class="btn_login" type="submit">Iniciar Sesión</button>
 				<div class="registro">

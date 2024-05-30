@@ -50,3 +50,27 @@ CREATE TABLE tb_fun_al(
 SELECT * FROM tb_fundaciones;
 SELECT * FROM tb_usuarios;
 INSERT INTO tb_fundaciones VALUES(1, 'Ejemplo', '0987655417', 'Dirección 1', 'Juan Donoso')
+
+CREATE TABLE tb_estado(
+	id_es SERIAL PRIMARY KEY,
+	nombre_es VARCHAR(100) NOT NULL
+);
+
+INSERT INTO tb_estado VALUES(1, 'Recibido');
+INSERT INTO tb_estado VALUES(2, 'Procesando');
+INSERT INTO tb_estado VALUES(3, 'Entregado');
+
+CREATE TABLE tb_donaciones (
+    id_don SERIAL PRIMARY KEY,
+	id_us INTEGER NOT NULL,
+    id_fun_al INTEGER NOT NULL,
+	cantidad_al INTEGER NOT NULL,
+	fecha_don DATE NOT NULL,
+	fecha_ent DATE,
+	beneficiado VARCHAR(100),
+	id_es INTEGER NOT NULL,
+	CONSTRAINT fk_tb_usuarios FOREIGN KEY (id_us) REFERENCES tb_usuarios(id_us),
+	CONSTRAINT fk_tb_fun_al FOREIGN KEY (id_fun_al) REFERENCES tb_fun_al(id_fun_al),
+	CONSTRAINT fk_tb_estado FOREIGN KEY (id_es) REFERENCES tb_estado(id_es));
+
+	

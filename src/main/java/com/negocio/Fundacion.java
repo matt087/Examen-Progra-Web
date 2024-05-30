@@ -57,6 +57,72 @@ public class Fundacion {
 		this.representante = representante;
 	}
 
+	public String comboFundaciones()
+	{
+		String combo="<select class='input_izq' name=\"cmbFundaciones\" required oninvalid=\"this.setCustomValidity('No hay Fundaciones Ingresadas')\">";
+		String sql="SELECT id_fu, nombre_fu FROM tb_fundaciones";
+		ResultSet rs=null;
+		Conexion con=new Conexion();
+		try
+		{
+			rs=con.Consulta(sql);
+			while(rs.next())
+			{
+				combo+="<option value="+rs.getInt(1)+ ">"+rs.getString(2)+"</option>";
+			}
+			combo+="</select>";
+		}
+		catch(SQLException e)
+		{
+			System.out.print(e.getMessage());
+		}
+		return combo;
+	}
+	
+	public String crearTablaSuministros(int id_fundacion)
+	{
+		String sentencia="SELECT tb_fun_al.id_fun_al, nombre_al, tb_fun_al.cantidad_al FROM tb_fun_al, tb_alimentos WHERE tb_fun_al.id_al = tb_alimentos.id_al AND id_fu="+id_fundacion;
+		Conexion con=new Conexion();
+		ResultSet rs=null;
+		String tabla="<table class=\"table\"><thead><tr><th scope=\"col\">ID</th><th scope=\"col\">Nombre del Suministro</th><th scope=\"col\">Cantidad Disponible</th></tr></thead><tbody><tr>";
+		try 
+		{
+			rs=con.Consulta(sentencia);
+			while(rs.next())
+			{
+				tabla+="<th scope=\"row\">"+rs.getInt(1)+"</th>"
+						+ "<td>"+rs.getString(2)+"</td>"
+						+ "<td>"+rs.getInt(3)+"</td>"
+						+"</tr>";
+			}
+			tabla+="</tbody></table>";
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.print(e.getMessage());
+		}
+		return tabla;
+	}
+	
+	public String getNombreById(int id)
+	{
+		String sql="SELECT nombre_fu FROM tb_fundaciones WHERE id_fu="+id;
+		ResultSet rs=null;
+		Conexion con=new Conexion();
+		String nombre="";
+		try
+		{
+			rs=con.Consulta(sql);
+			while(rs.next())
+			{
+				nombre=rs.getString(1);			}
+		}
+		catch(SQLException e)
+		{
+			System.out.print(e.getMessage());
+		}
+		return nombre;
+	}
+	
 	public String crearTabla()
 	{
 		String sentencia="SELECT * FROM tb_fundaciones ORDER BY id_fu";
@@ -199,6 +265,24 @@ public class Fundacion {
 		Conexion con=new Conexion();
 		String sql = "UPDATE tb_fundaciones SET id_fu="+f.getId()+", nombre_fu='"+f.getName()+"', telefono_fu='"
 				+f.getTelefono()+"', direccion_fu='"+f.getDireccion()+"', representante_fu='"+f.getRepresentante()+"' WHERE id_fu="+f.getId();
+		try 
+		{
+			con.Ejecutar(sql);
+			ingresado = true;
+		} 
+		catch (Exception e) 
+		{
+			ingresado = false;
+			System.out.print(e.getMessage());
+		}
+		return ingresado;
+	}
+	
+	public boolean editarStock(int cantidad, int id_fun_al)
+	{
+		boolean ingresado = false;
+		Conexion con=new Conexion();
+		String sql = "UPDATE tb_fun_al SET cantidad_al=cantidad_al+"+cantidad+" WHERE id_fun_al="+id_fun_al;
 		try 
 		{
 			con.Ejecutar(sql);

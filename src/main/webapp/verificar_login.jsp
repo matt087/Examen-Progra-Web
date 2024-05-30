@@ -21,7 +21,10 @@
 			if(usuario.getPerfil()==2)
 				response.sendRedirect("menu_donador.jsp"); 
 			if(usuario.getPerfil()==1)
+			{
+				sesion.setAttribute("fundacion", 0);
 				response.sendRedirect("menu_admin.jsp"); 
+			}
 		} 
 		else 
 		{

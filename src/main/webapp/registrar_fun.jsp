@@ -59,14 +59,14 @@
 		                <input type="text" name="nombre" class="input_izq" required>
 		            
 		                <label class="label">Teléfono: </label>
-						<input type="tel" name="telef" class="input_izq" pattern="[0-9]{10}" title="Ingrese un número de teléfono válido de 10 dígitos" maxlength="10" required>
+						<input type="tel" name="telef" class="input_izq" minlength="9" maxlength="10" title="Ingrese un número de teléfono válido de 10 dígitos" maxlength="10" required>
 		                
 		                <label class="label">Dirección: </label>
 		                <input type="text" name="direccion" class="input_izq" required>
 		                
 		                <label class="label">Representante Legal: </label>
 		                <input type="text" name="repre" class="input_izq" required>
-		            <div class="envio">
+		            <div class="envio2">
 		                <input type="submit" class="boton" value="Enviar">
 		                <input type="reset" class="boton">
 		            </div>     

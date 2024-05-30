@@ -55,7 +55,7 @@
 			<div class='barra_nav'>
 				<a href='menu_admin.jsp'><i class="bi bi-house-fill"></i>Inicio</a>
 				<a href='registro_fundaciones.jsp'><i class="bi bi-building-fill-add"></i>Registrar Fundaciones</a>
-				<a><i class="bi bi-clipboard-plus-fill"></i>Actualizar Información</a>
+				<a href='actualizar_info.jsp'><i class="bi bi-clipboard-plus-fill"></i>Actualizar Información</a>
 			</div>
 		</nav>
 		<main class='centrar_profile'>
@@ -74,7 +74,7 @@
 			                <label class="label">Representante Legal: </label>
 			                <input type="text" name="repre" class="input_izq" required>
 			                
-			            <div class="envio">
+			            <div class="envio2">
 			                <input type="submit" class="boton" value="Enviar">
 			                <input type="reset" class="boton">
 			            </div>     
